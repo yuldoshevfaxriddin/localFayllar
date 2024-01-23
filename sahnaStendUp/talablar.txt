@@ -1,0 +1,48 @@
+commands [start]:
+	Afisha
+	Mening chiptalarim, donate
+	Biz haqimizda
+	Tilni tanlang
+
+button [Afisha]:
+	hammsini ko'rish 
+	sanalar
+	bosh menu
+
+button [Mening chiptalarim]:
+	aktiv biletlar
+	barcha biletlar
+	bosh menu
+
+button [Donate]:
+	10 ming, 20 ming
+	30 ming, 40 ming
+	50 ming, 60 ming
+	70 ming, 80 ming
+	90 ming, 100 ming
+	bosh menu
+
+button [Biz haqimizda]:
+	#habar chiqadi
+	Siz SAHNA stand-up club rasmiy botidasiz. Qo'shimcha ma'lumot va takliflar uchun:
+	@SahnaStandupClub yoki +998955450303 raqamiga murojaat qilishingiz mumkin.
+
+button [Tilni tanlang]:
+	# habar chiqadi, inline keybard bilan
+	Iltimos, tilni tanlang
+	Пожалуйста, выберите язык ⬇️
+	uzb []
+	rus
+
+
+
+
+
+
+
+
+
+
+
+
+
