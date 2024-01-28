@@ -1,0 +1,100 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#ches-board-field{
+    background-color: blue;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ches-board{
+    width: 453px;
+    display: inline;
+    border: 2px solid red;
+    position: relative;
+}
+.example-box{
+    position: relative;
+    margin: 3px;
+    padding: 0px;
+    display:inline-block;
+    width: 50px;;
+    height: 50px;
+    background-color: red;
+}
+/* .example-box:nth-child(2n-1){
+    background-color: black;
+} */
+.example-box:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 100,0);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.active-box {
+    border: 3px solid black;
+}
+.ches-active {
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#navbar-ches{
+    position: absolute;
+    left: 20px;
+}
+#navbar-ches .span-field{
+    margin: 3px;
+}
+#navbar-ches .span-field .ches-selection{
+    width: 50px;
+    height: 50px;
+    display: block;
+    background-color:red;
+    background-image: var(--bgImage);
+    background-size: 80%;
+    border: 2px solid yellow;
+    border-radius: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#navbar-ches .span-field .ches-selection:hover{
+    transform: scale(1.1);
+}
+#navbar-ches .span-field .active-ches{
+    background-color: yellow;
+    border-color: red;
+    transform: scale(1.1);
+}
+.example-box .number{
+    pointer-events: none;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+.example-box .alfa{
+    pointer-events: none;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
+/* 
+@media (max-width:400px){
+    .example-box{
+        width:40px;
+        height:40px;
+    }
+    #ches-board{
+        width: 410px;
+    }
+    #navbar-ches .span-field .ches-selection{
+        display: inline;
+    }
+} */
