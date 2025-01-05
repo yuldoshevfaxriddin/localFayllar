@@ -2,7 +2,7 @@ import os
 import asyncio
 import aiohttp  # pip install aiohttp
 import aiofile  # pip install aiofile
-import tqdm
+import tqdm     # pip install tqdm
 
 REPORTS_FOLDER = "reports"
 FILES_PATH = os.path.join(REPORTS_FOLDER, "files")
@@ -24,11 +24,17 @@ def download_files_from_report(urls):
                 print(f"request: {fname}","content-length: ",file_size)
                 
                 resp2 = resp.content
+                download = 0
+                progres_bar = tqdm.tqdm(total=file_size)
                 async with aiofile.async_open(
                     os.path.join(FILES_PATH, fname), "wb"
                 ) as outfile:
-                    outfile.write(resp2)
-                print(f'saved: {fname}')
+                    async for chunk in resp2.iter_chunked(SIZE_1_MB):
+                        download += len(chunk)
+                        await outfile.write(chunk)
+                        progres_bar.update(len(chunk))
+                    progres_bar.close()
+                    print(f'saved: {fname}')
 
     async def main():
         async with aiohttp.ClientSession() as session:
@@ -40,6 +46,7 @@ def download_files_from_report(urls):
     loop.close()
 
 
+
 urls = ["https://www.w3schools.com/html/mov_bbb.mp4",
         "https://i.pinimg.com/originals/15/f6/a3/15f6a3aac562ee0fadbbad3d4cdf47bc.jpg",
         "https://files.uzmovi.club/film9/mrrobot/2-9qism.mp4",
@@ -48,5 +55,4 @@ urls = ["https://www.w3schools.com/html/mov_bbb.mp4",
         "https://fayllar1.ru/20/kinolar/65%20my5tv%20480p%20O%27zbek%20tilida%20(asilmedia.net).mp4",
 
         ]
-url = ["https://fayllar1.ru/20/kinolar/65%20my5tv%20480p%20O%27zbek%20tilida%20(asilmedia.net).mp4",]
-download_files_from_report(url)
+download_files_from_report(urls)
